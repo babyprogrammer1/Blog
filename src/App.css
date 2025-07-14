@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Lora:wght@400;700&family=Merriweather:wght@400;700&display=swap');
+
+body, #root {
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  background: linear-gradient(135deg, #f8f8f6 0%, #e2e8f0 100%);
+  animation: bg-fade-in 1s ease;
+  font-family: 'Merriweather', 'Lora', 'Inter', serif;
+}
+
+@keyframes bg-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+main, .card {
+  width: 100%;
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 2.5rem 2rem;
+  background: rgba(255,255,255,0.95);
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 32px rgba(30, 41, 59, 0.10);
+  animation: card-fade-in 0.8s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes card-fade-in {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 900px) {
+  main, .card {
+    max-width: 98vw;
+    padding: 1.2rem 0.5rem;
+    margin: 1.2rem auto;
+    border-radius: 1rem;
+  }
+}
+
+/* Custom blog palette */
+.bg-ivory { background-color: #f8f8f6 !important; }
+.text-ivory { color: #f8f8f6 !important; }
+.bg-slate-800 { background-color: #1e293b !important; }
+.text-slate-800 { color: #1e293b !important; }
+.bg-slate-100 { background-color: #f1f5f9 !important; }
+.text-slate-100 { color: #f1f5f9 !important; }
+
+/* Utility for spacing and alignment */
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.gap-8 { gap: 2rem; }
+
+/* Smoother transitions for blog cards */
+.blog-card {
+  transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+}
+.blog-card:hover {
+  box-shadow: 0 12px 40px rgba(30,41,59,0.18);
+  background: #f1f5f9;
+  transform: translateY(-6px) scale(1.03);
+}
+
+/* Animations for PostCard and buttons */
+.animate-fadein { animation: fadein 0.8s cubic-bezier(.4,0,.2,1); }
+@keyframes fadein { from { opacity: 0; transform: translateY(40px);} to { opacity: 1; transform: none; } }
+.animate-bounce-once { animation: bounce-once 0.7s 1; }
+@keyframes bounce-once { 0% { transform: scale(1); } 30% { transform: scale(1.08); } 60% { transform: scale(0.97); } 100% { transform: scale(1); } }
